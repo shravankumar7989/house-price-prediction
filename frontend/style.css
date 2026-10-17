@@ -1,0 +1,283 @@
+
+/* ---------- 1. Global settings ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --text: #172033;
+    --muted: #667085;
+    --border: #e4e8f0;
+    --background: #f4f7fc;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+/* ---------- 2. Navigation bar ---------- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 8%;
+    background: white;
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--primary);
+}
+
+.logo span {
+    color: var(--text);
+}
+
+.navbar p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* ---------- 3. Main layout ---------- */
+.container {
+    width: min(100% - 36px, 1000px);
+    margin: 0 auto;
+}
+
+.hero {
+    text-align: center;
+    padding: 65px 15px 35px;
+}
+
+.eyebrow {
+    display: inline-block;
+    color: var(--primary);
+    background: #e8efff;
+    padding: 8px 13px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(34px, 5vw, 52px);
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+    margin-bottom: 18px;
+}
+
+.hero h1 span {
+    color: var(--primary);
+}
+
+.hero-description {
+    max-width: 560px;
+    margin: 0 auto;
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+/* ---------- 4. Prediction card ---------- */
+.prediction-card {
+    background: white;
+    padding: 35px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: 0 15px 45px rgba(28, 46, 86, 0.07);
+}
+
+.card-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.card-heading h2 {
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+.card-heading p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.step-label {
+    white-space: nowrap;
+    background: #f0f4ff;
+    color: var(--primary);
+    border-radius: 8px;
+    padding: 9px 12px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+/* ---------- 5. Form and inputs ---------- */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 23px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: #fbfcff;
+    color: var(--text);
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input::placeholder {
+    color: #a0a8b8;
+}
+
+.form-group input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* ---------- 6. Predict button ---------- */
+#predict-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    margin-top: 30px;
+    padding: 16px;
+    border: none;
+    border-radius: 10px;
+    background: var(--primary);
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+#predict-button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+#predict-button:disabled {
+    opacity: 0.65;
+    cursor: wait;
+    transform: none;
+}
+
+.disclaimer {
+    color: var(--muted);
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.6;
+    margin-top: 17px;
+}
+
+/* ---------- 7. Prediction result ---------- */
+.result {
+    margin-top: 25px;
+    padding: 25px;
+    text-align: center;
+    background: #eef5ff;
+    border: 1px solid #d7e6ff;
+    border-radius: 12px;
+}
+
+.result-label {
+    color: var(--primary);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+    margin-bottom: 12px;
+}
+
+.result h2 {
+    color: var(--primary-dark);
+    font-size: clamp(28px, 5vw, 38px);
+    margin-bottom: 10px;
+}
+
+#result-message {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ---------- 8. Footer ---------- */
+footer {
+    text-align: center;
+    padding: 30px 10px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* ---------- 9. Mobile responsiveness ---------- */
+@media (max-width: 600px) {
+    .navbar {
+        padding: 18px;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .hero {
+        padding-top: 45px;
+    }
+
+    .prediction-card {
+        padding: 22px 17px;
+        border-radius: 15px;
+    }
+
+    .card-heading {
+        align-items: flex-start;
+    }
+
+    .card-heading h2 {
+        font-size: 20px;
+    }
+
+    .step-label {
+        font-size: 9px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 19px;
+    }
+}
